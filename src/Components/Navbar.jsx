@@ -13,12 +13,12 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink>Add job</NavLink>
+        <NavLink to="/createjob">Create a job</NavLink>
       </li>
     </>
   );
   return (
-    <div>
+    <div className="">
       <div className="navbar bg-[#F8F9FA] shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">

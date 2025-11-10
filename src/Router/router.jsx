@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Root from "../Layout/Root";
 import Home from "../Components/Home";
 import Login from "../Components/Login";
+import CreateaJOb from "../Components/CreateaJOb";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "createjob",
+        Component: CreateaJOb,
       },
       {
         path: "auth/login",
