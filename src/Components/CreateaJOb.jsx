@@ -44,7 +44,9 @@ const CreateaJOb = () => {
       createdat: new Date(),
     };
 
-    axiosInstance.post("/jobs", newJOb).then((res) => console.log(res.data));
+    axiosInstance.post("/jobs", newJOb).then((res) => {
+      // console.log(res.data);
+    });
   };
 
   return (

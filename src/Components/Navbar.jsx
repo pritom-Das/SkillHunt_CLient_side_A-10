@@ -9,11 +9,14 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink>All JObs</NavLink>
+        <NavLink to="/alljobs">All JObs</NavLink>
       </li>
 
       <li>
         <NavLink to="/createjob">Create a job</NavLink>
+      </li>
+      <li>
+        <NavLink>My added jobs</NavLink>
       </li>
     </>
   );
