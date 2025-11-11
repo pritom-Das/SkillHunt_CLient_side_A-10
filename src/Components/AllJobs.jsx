@@ -8,11 +8,11 @@ const AllJobs = () => {
   const axiosINstance = useAxios();
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    axiosINstance.get("/jobs").then((res) => {
+    axiosINstance.get(`/jobs?email=${user?.email}`).then((res) => {
       setJobs(res.data);
       console.log(res.data);
     });
-  }, []);
+  }, [user?.email]);
   if (loading) {
     return <p>loading..............</p>;
   }

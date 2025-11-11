@@ -16,7 +16,7 @@ const Banner = () => {
       {/* Swiper for background images */}
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop={true}
         className="absolute inset-0 h-full w-full z-0" // ensure behind everything
       >

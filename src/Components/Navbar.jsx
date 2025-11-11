@@ -1,31 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const link = (
     <>
-      <li>
-        <NavLink>Home</NavLink>
+      <li className="text-[#0e31297b] font-medium nunito-font">
+        <NavLink c>Home</NavLink>
       </li>
 
-      <li>
-        <NavLink to="/alljobs">All JObs</NavLink>
+      <li className="text-[#0e31297b] font-medium nunito-font">
+        <NavLink to="/alljobs">All Jobs</NavLink>
       </li>
 
-      <li>
+      <li className="text-[#0e31297b] font-medium nunito-font">
         <NavLink to="/createjob">Create a job</NavLink>
       </li>
-      <li>
+      <li className="text-[#0e31297b] font-medium nunito-font">
         <NavLink to="/addedjobs">My added jobs</NavLink>
       </li>
-      <li>
+      <li className="text-[#0e31297b] font-medium nunito-font">
         <NavLink to="/myaccpetedjobs">My accepted Jobs</NavLink>
       </li>
     </>
   );
   return (
     <div className="">
-      <div className="navbar bg-[#75f0ec7b] shadow-sm">
+      <div className="navbar bg-[#75f0ec7b] shadow-sm px-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +62,11 @@ const Navbar = () => {
           <ul className=" gap-5 menu-horizontal px-1">{link}</ul>
         </div>
         <div className="navbar-end">
-          <NavLink to="auth/login">Login</NavLink>
+          {user ? (
+            <NavLink to="auth/login">Logout</NavLink>
+          ) : (
+            <NavLink to="auth/login">Login</NavLink>
+          )}
         </div>
       </div>
     </div>

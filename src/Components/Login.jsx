@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import secureAnimation from "../assets/Secure Login.json";
+import secureAnimation from "../assets/loginSecure/Secure Login.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../Context/AuthContext";
 const Login = () => {
