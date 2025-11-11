@@ -39,6 +39,7 @@ const CreateaJOb = () => {
       budget,
       duration,
       image,
+      status: "pending",
       postedBy_name: user.displayName,
       postedBy_email: user.email,
       createdat: new Date(),

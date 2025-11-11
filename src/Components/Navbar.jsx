@@ -16,13 +16,16 @@ const Navbar = () => {
         <NavLink to="/createjob">Create a job</NavLink>
       </li>
       <li>
-        <NavLink>My added jobs</NavLink>
+        <NavLink to="/addedjobs">My added jobs</NavLink>
+      </li>
+      <li>
+        <NavLink to="/myaccpetedjobs">My accepted Jobs</NavLink>
       </li>
     </>
   );
   return (
     <div className="">
-      <div className="navbar bg-[#F8F9FA] shadow-sm">
+      <div className="navbar bg-[#75f0ec7b] shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,7 +52,9 @@ const Navbar = () => {
               {link}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-[#016B61]">Skill Hunt</a>
+          <a className="  text-2xl text-[#016B61] montserrat-font font-bold">
+            Skill Hunt
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className=" gap-5 menu-horizontal px-1">{link}</ul>

@@ -6,6 +6,8 @@ import Login from "../Components/Login";
 import CreateaJOb from "../Components/CreateaJOb";
 import AllJobs from "../Components/AllJobs";
 import JobDetails from "../Components/JobDetails";
+import MyaddedJobs from "../Components/MyaddedJobs";
+import MyaccpetedJobs from "../Components/MyaccpetedJobs";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "jobdetails/:id",
         Component: JobDetails,
+      },
+      {
+        path: "addedjobs",
+        Component: MyaddedJobs,
+      },
+      {
+        path: "/myaccpetedjobs",
+        Component: MyaccpetedJobs,
       },
       {
         path: "auth/login",
