@@ -10,6 +10,9 @@ const MyaccpetedJobs = () => {
   //     return <p>loading</p>;
   //   }
   useEffect(() => {
+    if (!user?.email) {
+      return <p>Loading.........</p>;
+    }
     axiosINstance.get(`/acceptedjobs?email=${user?.email}`).then((res) => {
       console.log("my accted jobs", res.data);
       setAcceptedjobs(res.data);
@@ -19,12 +22,12 @@ const MyaccpetedJobs = () => {
   const handleCompleteJOb = (job) => {
     if (user.email === job.acceptedBy_email) {
       console.log(user.email);
-      const cancelledJOb = {
-        status: "cancelled",
+      const completejob = {
+        status: "completed",
       };
 
       axiosINstance
-        .patch(`/acceptedjobs/${job._id}`, cancelledJOb)
+        .patch(`/acceptedjobs/${job._id}`, completejob)
         .then((res) => {
           setAcceptedjobs((preAccJobs) =>
             preAccJobs.filter((j) => j._id !== job._id)

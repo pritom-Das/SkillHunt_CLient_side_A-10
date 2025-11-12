@@ -29,6 +29,7 @@ const CreateaJOb = () => {
       duration,
       image,
       status: "pending",
+      postedBy_imgae: user.photoURL,
       postedBy_name: user.displayName,
       postedBy_email: user.email,
       createdat: new Date(),
