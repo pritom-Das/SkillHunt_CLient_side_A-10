@@ -46,7 +46,7 @@ const CreateaJOb = () => {
       icon: "success",
       draggable: true,
     });
-    navigate("/addedjobs");
+    form.reset();
   };
 
   return (
