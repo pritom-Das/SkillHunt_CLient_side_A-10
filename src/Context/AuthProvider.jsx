@@ -19,11 +19,13 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   //  signin an existing uer
   const SignInExistingUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -34,6 +36,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUserProfile = (updatedData) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, updatedData);
   };
 
