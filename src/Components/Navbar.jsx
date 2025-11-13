@@ -7,21 +7,56 @@ const Navbar = () => {
   const link = (
     <>
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink>Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
+          }
+        >
+          Home
+        </NavLink>
       </li>
 
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink to="/alljobs">All Jobs</NavLink>
+        <NavLink
+          to="/alljobs"
+          className={({ isActive }) =>
+            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
+          }
+        >
+          All Jobs
+        </NavLink>
       </li>
 
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink to="/createjob">Create a job</NavLink>
+        <NavLink
+          to="/createjob"
+          className={({ isActive }) =>
+            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
+          }
+        >
+          Create a job
+        </NavLink>
       </li>
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink to="/addedjobs">My added jobs</NavLink>
+        <NavLink
+          to="/addedjobs"
+          className={({ isActive }) =>
+            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
+          }
+        >
+          My added jobs
+        </NavLink>
       </li>
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink to="/myaccpetedjobs">My accepted Jobs</NavLink>
+        <NavLink
+          to="/myaccpetedjobs"
+          className={({ isActive }) =>
+            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
+          }
+        >
+          My accepted Jobs
+        </NavLink>
       </li>
     </>
   );

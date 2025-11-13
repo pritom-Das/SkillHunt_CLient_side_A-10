@@ -20,7 +20,7 @@ const AllJobs = () => {
       .finally(() => setDataloading(false));
   }, [user?.email]);
 
-  if (loading || dataLoading || jobs == null) {
+  if (dataLoading || loading) {
     return (
       <div className="text-center ">
         <span className="loading loading-ball loading-xs"></span>

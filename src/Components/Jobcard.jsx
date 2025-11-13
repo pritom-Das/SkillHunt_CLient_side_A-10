@@ -50,7 +50,7 @@ const Jobcard = ({ job }) => {
             </p>
             <p>{formattedDate}</p>
           </div>
-          <h2 className=" mt-1.5 montserrat-font font-medium  text-xl  ">
+          <h2 className=" mt-1.5 nunito-font font-medium  text-xl  ">
             {title}
           </h2>
           <p className="nunito-font text-sm text-[#071d187b]">
