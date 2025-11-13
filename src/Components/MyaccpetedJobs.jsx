@@ -78,18 +78,6 @@ const MyaccpetedJobs = () => {
     }
   };
 
-  // const jobcreatedAt = new Date(createdat);
-  // const formattedDate = jobcreatedAt.toLocaleDateString("en-US", {
-  //   year: "numeric",
-  //   month: "long",
-  //   day: "numeric",
-  // });
-
-  // const shortDescription =
-  //   description.length > 60 ? description.slice(0, 60) + "..." : description;
-  // if (acceptedjobs.length == 0) {
-  //   return <p>you didn't accepted any job yet</p>;
-  // }
   if (loading || dataLoading) {
     return (
       <div className="text-center ">
@@ -101,13 +89,13 @@ const MyaccpetedJobs = () => {
       </div>
     );
   }
-  if (acceptedjobs.length == 0) {
-    Swal.fire("You didn't accept any job");
+  if (acceptedjobs?.length == 0) {
+    // Swal.fire("You didn't accept any job");
     return (
       <div>
         {" "}
         <p className="text-center text-3xl mt-8 noto-serif font-semibold">
-          No Job Found
+          Accept a job First
         </p>
       </div>
     );

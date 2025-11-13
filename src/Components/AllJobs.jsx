@@ -16,7 +16,9 @@ const AllJobs = () => {
         setJobs(res.data);
         // console.log(res.data);
       })
-      .catch((err) => console.loge("Faild to load data", err))
+      .catch((err) => {
+        // console.loge("Faild to load data", err);
+      })
       .finally(() => setDataloading(false));
   }, [user?.email]);
 
