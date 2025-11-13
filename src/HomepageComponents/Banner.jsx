@@ -13,12 +13,11 @@ const images = [bannerImage1, bannerImage2, bannerImage3];
 const Banner = () => {
   return (
     <div className="relative w-full h-[500px] overflow-hidden">
-      {/* Swiper for background images */}
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        className="absolute inset-0 h-full w-full z-0 " // ensure behind everything
+        className="absolute inset-0 h-full w-full z-0 "
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
@@ -30,10 +29,8 @@ const Banner = () => {
         ))}
       </Swiper>
 
-      {/* Single overlay for all slides */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-      {/* Fixed content on top */}
       <div className="absolute inset-0 flex items-center  z-20  lg:px-12">
         <div>
           {" "}

@@ -63,7 +63,7 @@ const JobDetails = () => {
         acceptedBy_email: user.email,
       }));
 
-      console.log("accepted job is :", res.data);
+      navigate("/myaccpetedjobs");
     });
   };
 
@@ -162,6 +162,13 @@ const JobDetails = () => {
       }
     });
   };
+  const jobaccepted = () => {
+    Swal.fire({
+      title: "The Internet?",
+      text: "You alreay accepted this job",
+      icon: "question",
+    });
+  };
   return (
     <div className="w-11/12 mx-auto mt-8">
       <div className="bg-base-200 rounded-2xl ">
@@ -209,7 +216,7 @@ const JobDetails = () => {
                 ) : status === "accepted" ? (
                   <button
                     className="btn btn-accent nunito-font"
-                    onClick={handleAcceptJob}
+                    onClick={jobaccepted}
                   >
                     Job accepted
                   </button>
@@ -329,7 +336,9 @@ const JobDetails = () => {
                   name="image"
                   defaultValue={image}
                 />
-                <button className="btn btn-neutral mt-3">save changes</button>
+                <button className="btn btn-neutral bg-[#414e61] mt-3">
+                  save changes
+                </button>
               </div>
             </form>
             <div className="flex gap-x-5 justify-center">
