@@ -11,7 +11,7 @@ const LatestJobs = () => {
     axiosInstance
       .get("/latestJobs")
       .then((res) => {
-        console.log("latest jobs", res.data);
+        // console.log("latest jobs", res.data);
         setLatestJobs(res.data);
       })
       .catch((err) => {
@@ -36,7 +36,7 @@ const LatestJobs = () => {
   return (
     <div className="grid grid-cols-1 place-items-center lg:grid-cols-4 mt-4 gap-4  w-11/12 mx-auto">
       {latestjobs.map((job) => (
-        <Jobcard job={job}></Jobcard>
+        <Jobcard job={job} key={job._id}></Jobcard>
       ))}
     </div>
   );

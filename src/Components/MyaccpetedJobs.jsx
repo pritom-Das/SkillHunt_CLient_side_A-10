@@ -13,7 +13,7 @@ const MyaccpetedJobs = () => {
 
   useEffect(() => {
     if (!user?.email) {
-      console.log("user is not set yet");
+      // console.log("user is not set yet");
       return;
     }
     // .get(`/acceptedjobs?email=${user.email}`)
@@ -22,7 +22,7 @@ const MyaccpetedJobs = () => {
     axiosSecure
       .get(`/acceptedjobs?email=${user.email}`)
       .then((res) => {
-        console.log("amy accpted jobs", res.data);
+        // console.log("amy accpted jobs", res.data);
         setAcceptedjobs(res.data);
       })
       .catch((err) => console.error("Error fetching accepted jobs:", err))
@@ -46,7 +46,7 @@ const MyaccpetedJobs = () => {
 
   const handleCompleteJOb = (job) => {
     if (user.email === job.acceptedBy_email) {
-      console.log(user.email);
+      // console.log(user.email);
       const completejob = {
         status: "completed",
       };
@@ -63,7 +63,7 @@ const MyaccpetedJobs = () => {
 
   const handleCanclejob = (job) => {
     if (user.email === job.acceptedBy_email) {
-      console.log(user.email);
+      // console.log(user.email);
       const cancelledJOb = {
         status: "pending",
       };

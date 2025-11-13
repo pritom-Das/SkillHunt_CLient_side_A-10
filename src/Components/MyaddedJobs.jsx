@@ -17,7 +17,7 @@ const MyaddedJobs = () => {
       axiosSecure
         .get("/myadded-jobs")
         .then((res) => {
-          console.log("my added jobs", res.data);
+          // console.log("my added jobs", res.data);
           setJobs(res.data);
         })
         .catch((err) => console.error("Faild to load data", err))
