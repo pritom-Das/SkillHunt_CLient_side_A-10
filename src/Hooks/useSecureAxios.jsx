@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://sk-ill-hunt-server-side.vercel.app/",
 });
 
 const useSecureAxios = () => {
