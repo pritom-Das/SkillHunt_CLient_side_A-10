@@ -106,7 +106,7 @@ const MyaccpetedJobs = () => {
     return (
       <div>
         {" "}
-        <p className="text-center text-3xl noto-serif font-semibold">
+        <p className="text-center text-3xl mt-8 noto-serif font-semibold">
           No Job Found
         </p>
       </div>
@@ -116,7 +116,7 @@ const MyaccpetedJobs = () => {
     <div className="w-11/12 mx-auto  flex flex-col gap-9">
       {acceptedjobs.map((job) => (
         <div className="bg-base-200 shadow-xl rounded-xl">
-          <div className="flex space-x-7">
+          <div className="flex space-x-7 nunito-font">
             {" "}
             <div>
               <img
@@ -127,13 +127,13 @@ const MyaccpetedJobs = () => {
             </div>
             <div>
               <div>
-                <p>posted By Name {job.postedBy_name}</p>
+                <p>Job post By : {job.postedBy_name}</p>
                 <p>Email : {job.postedBy_email}</p>
               </div>
               <p>Title : {job.title}</p>
               <p> Required SKills : {job.skillrequired}</p>
               <p> Compensation : {job.budget}$/h</p>
-              <p>{job.duration}</p>
+              <p>Duration : {job.duration}</p>
               <div className="flex gap-2">
                 <button
                   className="btn btn-outline btn-accent"
@@ -154,7 +154,7 @@ const MyaccpetedJobs = () => {
           </div>
           <hr className="my-2 border-gray-300" />
 
-          <div>job description : {job.description}</div>
+          <div className="nunito-font">job description : {job.description}</div>
         </div>
       ))}
     </div>

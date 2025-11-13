@@ -3,6 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import useAxios from "../Hooks/useAxios";
 import Jobcard from "./Jobcard";
 import useSecureAxios from "../Hooks/useSecureAxios";
+import Swal from "sweetalert2";
 
 const MyaddedJobs = () => {
   const { user, loading } = useContext(AuthContext);
@@ -31,6 +32,16 @@ const MyaddedJobs = () => {
         <span className="loading loading-ball loading-md"></span>
         <span className="loading loading-ball loading-lg"></span>
         <span className="loading loading-ball loading-xl"></span>
+      </div>
+    );
+  }
+  if (jobs.length == 0) {
+    Swal.fire("You haven't created any job yet");
+    return (
+      <div>
+        <p className="text-center text-3xl mt-8 noto-serif font-semibold">
+          No Job Found
+        </p>
       </div>
     );
   }

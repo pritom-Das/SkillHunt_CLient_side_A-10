@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import useAxios from "../Hooks/useAxios";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const CreateaJOb = () => {
   const { user } = useContext(AuthContext);
   const axiosInstance = useAxios();
+  const navigate = useNavigate();
 
   const handleCreateJOb = (e) => {
     e.preventDefault();
@@ -44,6 +46,7 @@ const CreateaJOb = () => {
       icon: "success",
       draggable: true,
     });
+    navigate("/addedjobs");
   };
 
   return (
@@ -57,6 +60,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="title"
               name="title"
+              required
             />
 
             <label className="label">Description</label>
@@ -65,6 +69,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="description"
               name="description"
+              required
             />
             <label className="label">Category</label>
             <input
@@ -72,6 +77,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="Category"
               name="Category"
+              required
             />
 
             {/* ................. */}
@@ -85,7 +91,6 @@ const CreateaJOb = () => {
                   name="jobType"
                   value="Fixed"
                   className="radio radio-xs"
-                  required
                 />
                 <span>Fixed</span>
               </label>
@@ -109,6 +114,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="Required Skills "
               name="skillrequired"
+              required
             />
           </div>
           <div className="card-body">
@@ -118,6 +124,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="Budget"
               name="budget"
+              required
             />
 
             <label className="label">Duration</label>
@@ -126,6 +133,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="Duration"
               name="duration"
+              required
             />
 
             <label className="label">Cover Image</label>
@@ -134,6 +142,7 @@ const CreateaJOb = () => {
               className="input w-full"
               placeholder="Image URL"
               name="image"
+              required
             />
             <button className="btn btn-neutral mt-4">Create job</button>
           </div>

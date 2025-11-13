@@ -12,7 +12,7 @@ const TakeNextStep = () => {
         <h1 className="nunito-font font-medium text-2xl lg:text-4xl text-[#EEEEEE] text-shadow-2xs">
           Take the Next Step in Your Career
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 space-y-3.5 lg:space-x-5 mt-3.5">
+        <div className="grid grid-cols-1 lg:grid-cols-2  lg:space-x-5 mt-3.5">
           <NavLink
             to="/createjob"
             className="border border-[#75f0ec7b] rounded px-4 py-2 text-xl text-white flex justify-center items-center gap-x-2"
@@ -22,9 +22,9 @@ const TakeNextStep = () => {
           </NavLink>
           <NavLink
             to="/alljobs"
-            className="border border-[#75f0ec7b] rounded text-xl text-white py-2 flex justify-center items-center gap-x-2"
+            className="border border-[#75f0ec7b] rounded px-4 py-2 text-xl text-white flex justify-center items-center gap-x-2"
           >
-            Find job
+            Find Job
             <CiSearch />
           </NavLink>
         </div>

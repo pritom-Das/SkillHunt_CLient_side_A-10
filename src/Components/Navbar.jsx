@@ -24,7 +24,7 @@ const Navbar = () => {
             `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
           }
         >
-          All Jobs
+          Avilable Jobs
         </NavLink>
       </li>
 
@@ -35,7 +35,7 @@ const Navbar = () => {
             `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
           }
         >
-          Create a job
+          Create a Job
         </NavLink>
       </li>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
                 }`
               }
             >
-              My added jobs
+              My added Jobs
             </NavLink>
           </li>
 

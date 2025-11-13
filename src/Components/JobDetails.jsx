@@ -206,8 +206,18 @@ const JobDetails = () => {
                       Delete
                     </button>
                   </div>
+                ) : status === "accepted" ? (
+                  <button
+                    className="btn btn-accent nunito-font"
+                    onClick={handleAcceptJob}
+                  >
+                    Job accepted
+                  </button>
                 ) : (
-                  <button className="btn btn-accent" onClick={handleAcceptJob}>
+                  <button
+                    className="btn btn-accent nunito-font "
+                    onClick={handleAcceptJob}
+                  >
                     Accept this job
                   </button>
                 )}
@@ -222,13 +232,6 @@ const JobDetails = () => {
           </div>
         </div>
       </div>
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
-      {/* <button
-        className="btn"
-        onClick={() => document.getElementById("my_modal_5").showModal()}
-      >
-        open modal
-      </button> */}
       <dialog
         id="my_modal_5"
         ref={jobModal}
