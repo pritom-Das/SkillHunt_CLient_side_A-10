@@ -113,10 +113,10 @@ const MyaccpetedJobs = () => {
     );
   }
   return (
-    <div className="w-11/12 mx-auto  flex flex-col gap-9">
+    <div className="w-11/12 mx-auto mt-8  flex flex-col gap-9">
       {acceptedjobs.map((job) => (
         <div className="bg-base-200 shadow-xl rounded-xl">
-          <div className="flex space-x-7 nunito-font">
+          <div className=" flex flex-col  lg:flex-row  space-x-7 nunito-font ">
             {" "}
             <div>
               <img

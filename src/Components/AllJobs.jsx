@@ -33,7 +33,7 @@ const AllJobs = () => {
   }
 
   return (
-    <div className="w-11/12 grid grid-cols-4 mt-8 mx-auto ">
+    <div className="w-11/12 grid  grid-cols-1  lg:grid-cols-4 mt-8 mx-auto ">
       {jobs.map((job) => (
         <Jobcard job={job} key={job._id}></Jobcard>
       ))}

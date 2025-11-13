@@ -30,9 +30,6 @@ const Home = () => {
       <div className="w-9/12 mx-auto shadow-2xl   mt-14 rounded-2xl ">
         <TakeNextStep />
       </div>
-      <div className="mt-14">
-        <Footer />
-      </div>
     </div>
   );
 };

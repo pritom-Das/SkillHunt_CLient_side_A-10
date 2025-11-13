@@ -30,7 +30,7 @@ const Jobcard = ({ job }) => {
   });
   return (
     <div>
-      <div className=" bg-base-200 w-80 shadow-sm rounded-xl transform transition-transform duration-300 hover:scale-105 hover:shadow-md">
+      <div className=" bg-base-200 w-80 shadow-sm rounded-xl border border-gray-200 transform transition-transform duration-300 hover:scale-105 hover:shadow-md">
         <div>
           <figure className="px-2.5 py-1.5  rounded-sm ">
             <img

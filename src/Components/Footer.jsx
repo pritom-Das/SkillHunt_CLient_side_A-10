@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       {/* Your footer content */}
-      <div className=" ">
+      <div className="mt-14 ">
         <footer className="footer sm:footer-horizontal bg-[#31363f]  text-neutral-content p-10">
           <nav className="nunito-font">
             <h6 className="footer-title">Services</h6>

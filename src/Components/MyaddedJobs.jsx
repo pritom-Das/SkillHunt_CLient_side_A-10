@@ -47,7 +47,7 @@ const MyaddedJobs = () => {
   }
   return (
     <div>
-      <div className="w-11/12 grid grid-cols-4 mt-8 mx-auto gap-5">
+      <div className="w-11/12 place-items-center lg:mx-auto grid grid-cols-1  space-y-5 lg:space-y-0  lg:grid-cols-4 mt-8  gap-4">
         {jobs?.map((job) => (
           <Jobcard job={job} key={job._id}></Jobcard>
         ))}
