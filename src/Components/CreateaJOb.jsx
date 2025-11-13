@@ -50,10 +50,13 @@ const CreateaJOb = () => {
   };
 
   return (
-    <div className="card bg-base-100  w-7/12  mx-auto mt-8 shadow-2xl border border-gray-300">
+    <div className="card bg-base-100  w-10/12 lg:w-7/12  mx-auto mt-8 shadow-2xl border border-gray-300">
       <div className="card-body">
-        <form onSubmit={handleCreateJOb} className="fieldset flex">
-          <div className="card-body">
+        <form
+          onSubmit={handleCreateJOb}
+          className="fieldset flex flex-col  lg:flex-row "
+        >
+          <div className="lg:card-body">
             <label className="label">Title</label>
             <input
               type="text"
@@ -117,8 +120,8 @@ const CreateaJOb = () => {
               required
             />
           </div>
-          <div className="card-body">
-            <label className="label mt-4">Budget</label>
+          <div className="lg:card-body">
+            <label className="label ">Budget</label>
             <input
               type="text"
               className="input w-full"
@@ -144,7 +147,7 @@ const CreateaJOb = () => {
               name="image"
               required
             />
-            <button className="btn btn-neutral mt-4">Create job</button>
+            <button className="btn btn-neutral w-full mt-4">Create job</button>
           </div>
         </form>
       </div>

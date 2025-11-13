@@ -18,12 +18,12 @@ const Banner = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        className="absolute inset-0 h-full w-full z-0" // ensure behind everything
+        className="absolute inset-0 h-full w-full z-0 " // ensure behind everything
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
             <div
-              className="h-full w-full bg-cover bg-center filter blur-[2px]"
+              className="h-full w-full bg-cover bg-center  filter blur-[2px]"
               style={{ backgroundImage: `url(${img})` }}
             ></div>
           </SwiperSlide>
@@ -34,15 +34,15 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
       {/* Fixed content on top */}
-      <div className="absolute inset-0 flex items-center  z-20 px-12">
+      <div className="absolute inset-0 flex items-center  z-20  lg:px-12">
         <div>
           {" "}
-          <h2 className="nunito-font font-medium text-6xl text-white text-shadow-2xs ">
+          <h2 className="nunito-font font-medium text-5xl p-3.5 lg:text-6xl text-white text-shadow-2xs ">
             Discover talent, accept projects,
             <br />
             and achieve goals effortlessly.
           </h2>
-          <div className="mt-3.5 flex gap-x-3.5">
+          <div className="mt-3.5 flex flex-col p-3.5 space-y-3 lg:space-y-0 lg:flex-row gap-x-3.5">
             <button className="border border-[#75f0ec7b] px-4 py-2 text-white flex justify-center items-center gap-x-2 rounded ">
               Web devlopment{" "}
               <span>

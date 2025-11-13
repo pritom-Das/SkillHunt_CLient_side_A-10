@@ -34,7 +34,7 @@ const LatestJobs = () => {
     );
   }
   return (
-    <div className="grid grid-cols-1  lg:grid-cols-4 mt-4 gap-4  w-11/12 mx-auto">
+    <div className="grid grid-cols-1 place-items-center lg:grid-cols-4 mt-4 gap-4  w-11/12 mx-auto">
       {latestjobs.map((job) => (
         <Jobcard job={job}></Jobcard>
       ))}
