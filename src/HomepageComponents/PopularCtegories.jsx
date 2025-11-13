@@ -14,7 +14,7 @@ const categories = [
 
 const PopularCategories = () => {
   return (
-    <div className="grid grid-cols-4 gap-4 mt-4 w-11/12 mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-4  gap-4 mt-4 w-11/12 mx-auto">
       {categories.map((category, index) => (
         <div
           key={index}

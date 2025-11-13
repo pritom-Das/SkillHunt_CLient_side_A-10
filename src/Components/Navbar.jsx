@@ -38,26 +38,36 @@ const Navbar = () => {
           Create a job
         </NavLink>
       </li>
-      <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink
-          to="/addedjobs"
-          className={({ isActive }) =>
-            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
-          }
-        >
-          My added jobs
-        </NavLink>
-      </li>
-      <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink
-          to="/myaccpetedjobs"
-          className={({ isActive }) =>
-            `text-[#0e31297b] ${isActive ? "underline underline-offset-4" : ""}`
-          }
-        >
-          My accepted Jobs
-        </NavLink>
-      </li>
+
+      {user && (
+        <>
+          <li className="text-[#0e31297b] font-medium nunito-font">
+            <NavLink
+              to="/addedjobs"
+              className={({ isActive }) =>
+                `text-[#0e31297b] ${
+                  isActive ? "underline underline-offset-4" : ""
+                }`
+              }
+            >
+              My added jobs
+            </NavLink>
+          </li>
+
+          <li className="text-[#0e31297b] font-medium nunito-font">
+            <NavLink
+              to="/myaccpetedjobs"
+              className={({ isActive }) =>
+                `text-[#0e31297b] ${
+                  isActive ? "underline underline-offset-4" : ""
+                }`
+              }
+            >
+              My accepted Jobs
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -102,11 +112,22 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink to="" onClick={userSignOut}>
+            <NavLink
+              to=""
+              onClick={userSignOut}
+              className="bg-linear-to-r from-[#495466] to-[#414e61] px-6 py-1.5 rounded-xl text-white 
+             transition-transform duration-300 hover:scale-105 hover:brightness-110"
+            >
               Logout
             </NavLink>
           ) : (
-            <NavLink to="auth/login">Login</NavLink>
+            <NavLink
+              to="auth/login"
+              className="bg-linear-to-r from-[#495466] to-[#414e61] px-6 py-1.5 rounded-xl text-white 
+             transition-transform duration-300 hover:scale-105 hover:brightness-110"
+            >
+              Login
+            </NavLink>
           )}
         </div>
       </div>

@@ -37,7 +37,7 @@ const MyaddedJobs = () => {
   return (
     <div>
       <div className="w-11/12 grid grid-cols-4 mt-8 mx-auto gap-5">
-        {jobs.map((job) => (
+        {jobs?.map((job) => (
           <Jobcard job={job} key={job._id}></Jobcard>
         ))}
       </div>

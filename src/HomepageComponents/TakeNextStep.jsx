@@ -6,13 +6,13 @@ import { CiSearch } from "react-icons/ci";
 222831;
 const TakeNextStep = () => {
   return (
-    <div className="grid grid-cols-2  bg-linear-to-r from-[#495466] to-[#414e61] ">
+    <div className="grid grid-cols-1 lg:grid-cols-2  bg-linear-to-r from-[#495466] to-[#414e61] rounded-2xl ">
       <div className="flex  flex-col justify-center px-5 ">
         {" "}
-        <h1 className="nunito-font font-medium text-4xl text-[#EEEEEE] text-shadow-2xs">
+        <h1 className="nunito-font font-medium text-2xl lg:text-4xl text-[#EEEEEE] text-shadow-2xs">
           Take the Next Step in Your Career
         </h1>
-        <div className="grid grid-cols-2 space-x-5 mt-3.5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 space-y-3.5 lg:space-x-5 mt-3.5">
           <NavLink
             to="/createjob"
             className="border border-[#75f0ec7b] rounded px-4 py-2 text-xl text-white flex justify-center items-center gap-x-2"
@@ -30,7 +30,7 @@ const TakeNextStep = () => {
         </div>
       </div>
       {/* img div */}
-      <div className="">
+      <div className="hidden lg:block">
         <img src={busimage} alt="" className="p-5  rounded-4xl" />
       </div>
     </div>

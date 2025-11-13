@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useAxios from "../Hooks/useAxios";
 import { AuthContext } from "../Context/AuthContext";
 import useSecureAxios from "../Hooks/useSecureAxios";
@@ -13,6 +13,7 @@ const JobDetails = () => {
   const axiosSecure = useSecureAxios();
   const [job, setJob] = useState([]);
   const [dataLoading, setDataloading] = useState(true);
+  const navigate = useNavigate();
   const {
     title,
     description,
@@ -34,7 +35,7 @@ const JobDetails = () => {
     axiosINstance
       .get(`/jobs/${id}`)
       .then((res) => {
-        console.log("job from job details page", res.data);
+        // console.log("job from job details page", res.data);
         setJob(res.data);
       })
       .catch((err) => console.error("Faild to load data", err))
@@ -54,9 +55,15 @@ const JobDetails = () => {
       acceptedBy_email: user.email,
     };
 
-    axiosINstance.patch(`/jobs/${job._id}`, acceptedjob).then((res) => {
-      // setJob((previousJobs) => previousJobs.filter((j) => j._id !== job._id));
-      console.log("accted job is :", res.data);
+    axiosSecure.patch(`/jobs/${job._id}`, acceptedjob).then((res) => {
+      setJob((prev) => ({
+        ...prev,
+        status: "accepted",
+        acceptedBy_name: user.displayName,
+        acceptedBy_email: user.email,
+      }));
+
+      console.log("accepted job is :", res.data);
     });
   };
 
@@ -111,13 +118,6 @@ const JobDetails = () => {
     }
     console.log(updatedFields);
 
-    // axiosInstance.post("/jobs", newJOb).then((res) => {
-    //   // console.log(res.data);
-    // });
-    // if (Object.keys(updatedFields).length === 0) {
-    //   alert("No changes detected");
-    //   return;
-    // }
     if (Object.keys(updatedFields).length === 0) {
       jobModal.current.close();
       Swal.fire({
@@ -128,7 +128,6 @@ const JobDetails = () => {
     }
 
     axiosSecure.patch(`/jobs/${job._id}`, updatedFields).then((res) => {
-      // setJob((previousJobs) => previousJobs.filter((j) => j._id !== job._id));
       setJob((prev) => ({ ...prev, ...updatedFields }));
       console.log("accted job is :", res.data);
     });
@@ -138,6 +137,30 @@ const JobDetails = () => {
       draggable: true,
     });
     jobModal.current.close();
+  };
+
+  const handleDeletejob = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/jobs/${job._id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Your job has been deleted.", "success").then(
+              () => {
+                navigate("/addedjobs");
+              }
+            );
+          }
+        });
+      }
+    });
   };
   return (
     <div className="w-11/12 mx-auto mt-8">
@@ -169,15 +192,23 @@ const JobDetails = () => {
               </div>
               <div>
                 {user.email === postedBy_email ? (
-                  <button
-                    className="btn btn-outline btn-info"
-                    onClick={handleopenModal}
-                  >
-                    Update information
-                  </button>
+                  <div className="felx space-x-4">
+                    <button
+                      className="btn btn-outline btn-info"
+                      onClick={handleopenModal}
+                    >
+                      Update information
+                    </button>
+                    <button
+                      className="btn btn-outline btn-warning"
+                      onClick={handleDeletejob}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 ) : (
                   <button className="btn btn-accent" onClick={handleAcceptJob}>
-                    Accept this jos
+                    Accept this job
                   </button>
                 )}
               </div>
@@ -187,6 +218,7 @@ const JobDetails = () => {
             <div>
               <p>{description}</p>
             </div>
+            {/* .... */}
           </div>
         </div>
       </div>

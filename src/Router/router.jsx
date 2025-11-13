@@ -8,6 +8,8 @@ import AllJobs from "../Components/AllJobs";
 import JobDetails from "../Components/JobDetails";
 import MyaddedJobs from "../Components/MyaddedJobs";
 import MyaccpetedJobs from "../Components/MyaccpetedJobs";
+import Privateroute from "../Privateroute.jsx/Privateroute";
+import Register from "../Components/Register";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,12 @@ const router = createBrowserRouter([
       },
       {
         path: "createjob",
-        Component: CreateaJOb,
+        element: (
+          <Privateroute>
+            {" "}
+            <CreateaJOb />
+          </Privateroute>
+        ),
       },
       {
         path: "alljobs",
@@ -28,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "jobdetails/:id",
-        Component: JobDetails,
+        element: (
+          <Privateroute>
+            <JobDetails />
+          </Privateroute>
+        ),
       },
       {
         path: "addedjobs",
@@ -41,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "auth/login",
         Component: Login,
+      },
+      {
+        path: "auth/register",
+        Component: Register,
       },
     ],
   },

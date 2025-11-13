@@ -8,7 +8,6 @@ const MyaccpetedJobs = () => {
   const { user, loading } = useContext(AuthContext);
   const [acceptedjobs, setAcceptedjobs] = useState([]);
   const [dataLoading, setDataloading] = useState(true);
-  // cosnt [error, setError] = useState(null);
   const axiosINstance = useAxios();
   const axiosSecure = useSecureAxios();
 
@@ -23,6 +22,7 @@ const MyaccpetedJobs = () => {
     axiosSecure
       .get(`/acceptedjobs?email=${user.email}`)
       .then((res) => {
+        console.log("amy accpted jobs", res.data);
         setAcceptedjobs(res.data);
       })
       .catch((err) => console.error("Error fetching accepted jobs:", err))

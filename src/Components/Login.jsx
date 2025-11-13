@@ -2,14 +2,19 @@ import React, { useContext } from "react";
 import secureAnimation from "../assets/loginSecure/Secure Login.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../Context/AuthContext";
+import { useLocation, useNavigate } from "react-router";
+import { NavLink } from "react-router";
 const Login = () => {
   const { SignInwithGoogle, user, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLognwithGoogle = (e) => {
     e.preventDefault();
     SignInwithGoogle().then((result) => {
       const user = result.user;
       console.log("google logged in ", user);
+      navigate(location.state?.from?.pathname || "/");
     });
   };
 
@@ -38,9 +43,13 @@ const Login = () => {
                     placeholder="Password"
                   />
                   <div>
-                    <a className="link link-hover">Forgot password?</a>
+                    <NavLink to="/auth/register" className="link link-hover">
+                      Don't have an account?
+                    </NavLink>
                   </div>
-                  <button className="btn btn-neutral mt-4">Login</button>
+                  <button className="btn btn-neutral mt-4 bg-[#414e61]">
+                    Login
+                  </button>
                   <button
                     // onClick={handleLognwithGoogle}
                     className="btn bg-white text-black border-[#e5e5e5]"
