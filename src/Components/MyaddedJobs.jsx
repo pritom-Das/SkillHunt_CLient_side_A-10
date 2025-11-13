@@ -2,21 +2,41 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import useAxios from "../Hooks/useAxios";
 import Jobcard from "./Jobcard";
+import useSecureAxios from "../Hooks/useSecureAxios";
 
 const MyaddedJobs = () => {
   const { user, loading } = useContext(AuthContext);
   const [jobs, setJobs] = useState([]);
-  const axiosInstance = useAxios();
+  const [dataLoading, setDataloading] = useState(true);
+
+  const axiosSecure = useSecureAxios();
 
   useEffect(() => {
-    axiosInstance.get(`/myadded-jobs?email=${user?.email}`).then((res) => {
-      console.log("my added jobs", res.data);
-      setJobs(res.data);
-    });
+    if (user?.email) {
+      axiosSecure
+        .get("/myadded-jobs")
+        .then((res) => {
+          console.log("my added jobs", res.data);
+          setJobs(res.data);
+        })
+        .catch((err) => console.error("Faild to load data", err))
+        .finally(() => setDataloading(false));
+    }
   }, [user?.email]);
+  if (loading || dataLoading) {
+    return (
+      <div className="text-center ">
+        <span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span>
+        <span className="loading loading-ball loading-xl"></span>
+      </div>
+    );
+  }
   return (
     <div>
-      <div className="w-11/12 grid grid-cols-3 mt-8 mx-auto gap-5">
+      <div className="w-11/12 grid grid-cols-4 mt-8 mx-auto gap-5">
         {jobs.map((job) => (
           <Jobcard job={job} key={job._id}></Jobcard>
         ))}

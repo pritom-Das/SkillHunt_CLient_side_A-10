@@ -3,11 +3,11 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, SIghoutAuser } = useContext(AuthContext);
   const link = (
     <>
       <li className="text-[#0e31297b] font-medium nunito-font">
-        <NavLink c>Home</NavLink>
+        <NavLink>Home</NavLink>
       </li>
 
       <li className="text-[#0e31297b] font-medium nunito-font">
@@ -25,6 +25,10 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const userSignOut = () => {
+    SIghoutAuser();
+  };
   return (
     <div className="">
       <div className="navbar bg-[#75f0ec7b] shadow-sm px-3">
@@ -63,7 +67,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink to="auth/login">Logout</NavLink>
+            <NavLink to="" onClick={userSignOut}>
+              Logout
+            </NavLink>
           ) : (
             <NavLink to="auth/login">Login</NavLink>
           )}

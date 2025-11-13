@@ -2,11 +2,16 @@ import React from "react";
 import Banner from "../HomepageComponents/Banner";
 import { FaArrowRight } from "react-icons/fa6";
 import PopularCtegories from "../HomepageComponents/PopularCtegories";
+import LatestJobs from "../HomepageComponents/LatestJobs";
 
 const Home = () => {
   return (
     <div>
       <Banner />
+
+      <div>
+        <LatestJobs />
+      </div>
       <div className="p-4">
         <div>
           {" "}

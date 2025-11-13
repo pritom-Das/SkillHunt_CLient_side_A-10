@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import useAxios from "../Hooks/useAxios";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const CreateaJOb = () => {
   const { user } = useContext(AuthContext);
@@ -37,6 +38,11 @@ const CreateaJOb = () => {
 
     axiosInstance.post("/jobs", newJOb).then((res) => {
       // console.log(res.data);
+    });
+    Swal.fire({
+      title: "Job Created",
+      icon: "success",
+      draggable: true,
     });
   };
 

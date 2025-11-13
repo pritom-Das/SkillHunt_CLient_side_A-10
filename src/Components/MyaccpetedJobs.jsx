@@ -1,23 +1,48 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import useAxios from "../Hooks/useAxios";
+import useSecureAxios from "../Hooks/useSecureAxios";
+import Swal from "sweetalert2";
 
 const MyaccpetedJobs = () => {
   const { user, loading } = useContext(AuthContext);
   const [acceptedjobs, setAcceptedjobs] = useState([]);
+  const [dataLoading, setDataloading] = useState(true);
+  // cosnt [error, setError] = useState(null);
   const axiosINstance = useAxios();
-  //   if (loading) {
-  //     return <p>loading</p>;
-  //   }
+  const axiosSecure = useSecureAxios();
+
   useEffect(() => {
     if (!user?.email) {
-      return <p>Loading.........</p>;
+      console.log("user is not set yet");
+      return;
     }
-    axiosINstance.get(`/acceptedjobs?email=${user?.email}`).then((res) => {
-      console.log("my accted jobs", res.data);
-      setAcceptedjobs(res.data);
-    });
-  }, []);
+    // .get(`/acceptedjobs?email=${user.email}`)
+    setDataloading(true);
+
+    axiosSecure
+      .get(`/acceptedjobs?email=${user.email}`)
+      .then((res) => {
+        setAcceptedjobs(res.data);
+      })
+      .catch((err) => console.error("Error fetching accepted jobs:", err))
+      .finally(() => setDataloading(false));
+  }, [user?.email]);
+  const {
+    title,
+    description,
+    Category,
+    jobType,
+    skillrequired,
+    budget,
+    duration,
+    image,
+    status,
+    postedBy_name,
+    postedBy_email,
+    postedBy_imgae,
+    createdat,
+  } = acceptedjobs;
 
   const handleCompleteJOb = (job) => {
     if (user.email === job.acceptedBy_email) {
@@ -52,24 +77,85 @@ const MyaccpetedJobs = () => {
         });
     }
   };
+
+  // const jobcreatedAt = new Date(createdat);
+  // const formattedDate = jobcreatedAt.toLocaleDateString("en-US", {
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // });
+
+  // const shortDescription =
+  //   description.length > 60 ? description.slice(0, 60) + "..." : description;
+  // if (acceptedjobs.length == 0) {
+  //   return <p>you didn't accepted any job yet</p>;
+  // }
+  if (loading || dataLoading) {
+    return (
+      <div className="text-center ">
+        <span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span>
+        <span className="loading loading-ball loading-xl"></span>
+      </div>
+    );
+  }
+  if (acceptedjobs.length == 0) {
+    Swal.fire("You didn't accept any job");
+    return (
+      <div>
+        {" "}
+        <p className="text-center text-3xl noto-serif font-semibold">
+          No Job Found
+        </p>
+      </div>
+    );
+  }
   return (
-    <div>
+    <div className="w-11/12 mx-auto  flex flex-col gap-9">
       {acceptedjobs.map((job) => (
-        <li>
-          <span>{job.title}</span>{" "}
-          <span
-            onClick={() => handleCompleteJOb(job)}
-            className="border border-amber-300"
-          >
-            Complete
-          </span>{" "}
-          <span
-            onClick={() => handleCanclejob(job)}
-            className="border border-amber-300"
-          >
-            Cancle{" "}
-          </span>
-        </li>
+        <div className="bg-base-200 shadow-xl rounded-xl">
+          <div className="flex space-x-7">
+            {" "}
+            <div>
+              <img
+                src={job.image}
+                alt=""
+                className="h-50 w-64 rounded-2xl py-2"
+              />
+            </div>
+            <div>
+              <div>
+                <p>posted By Name {job.postedBy_name}</p>
+                <p>Email : {job.postedBy_email}</p>
+              </div>
+              <p>Title : {job.title}</p>
+              <p> Required SKills : {job.skillrequired}</p>
+              <p> Compensation : {job.budget}$/h</p>
+              <p>{job.duration}</p>
+              <div className="flex gap-2">
+                <button
+                  className="btn btn-outline btn-accent"
+                  onClick={() => {
+                    handleCompleteJOb(job);
+                  }}
+                >
+                  Complete
+                </button>
+                <button
+                  className="btn  btn-outline  btn-warning "
+                  onClick={() => handleCanclejob(job)}
+                >
+                  Cancle
+                </button>
+              </div>
+            </div>
+          </div>
+          <hr className="my-2 border-gray-300" />
+
+          <div>job description : {job.description}</div>
+        </div>
       ))}
     </div>
   );

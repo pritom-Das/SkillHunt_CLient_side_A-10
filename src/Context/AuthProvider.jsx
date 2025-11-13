@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
 
@@ -19,6 +20,9 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const SIghoutAuser = () => {
+    return signOut(auth);
+  };
   //   get the current user
 
   useEffect(() => {
@@ -33,6 +37,7 @@ const AuthProvider = ({ children }) => {
   }, []);
   const authdata = {
     SignInwithGoogle,
+    SIghoutAuser,
     user,
     loading,
     setLoading,

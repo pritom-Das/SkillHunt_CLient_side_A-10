@@ -30,7 +30,7 @@ const Jobcard = ({ job }) => {
   });
   return (
     <div>
-      <div className=" bg-base-200 w-96 shadow-sm">
+      <div className=" bg-base-200 w-80 shadow-sm rounded-xl">
         <div>
           <figure className="px-2.5 py-1.5  rounded-sm ">
             <img
@@ -57,7 +57,10 @@ const Jobcard = ({ job }) => {
             {shortDescription}
           </p>
 
-          <p className="mt-1 nunito-font text-sm"> Job Type : {jobType}</p>
+          <p className="mt-1 nunito-font text-sm">
+            {" "}
+            Job Type : {jobType ? jobType : " "}
+          </p>
           <div className="flex justify-between mt-1">
             <p className="nunito-font text-sm"> Compensation : {budget}$/h</p>
             <NavLink
