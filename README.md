@@ -34,7 +34,7 @@ SkillHunt is a comprehensive platform that connects clients with skilled freelan
 - **Frontend:** React, HTML5, CSS3, JavaScript
 - **Routing:** React Router
 - **Backend:** Firebase (Authentication, Firestore, Hosting), Express.js
-- **State Management:** React Context API / Redux (if used)
+- **State Management:** React Context API 
 - **UI & Animations:** SweetAlert, CSS/JS Animations
 - **Deployment:** Firebase Hosting
 - **Other Tools:** Git, VS Code, Chrome DevTools
@@ -83,7 +83,7 @@ REACT_APP_FIREBASE_APP_ID=your_app_id
 ```
 4. **Run the development server**
 ```bash
-npm start
+npm run dev
 ```
 
 
